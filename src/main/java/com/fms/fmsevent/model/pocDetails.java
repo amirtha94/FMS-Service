@@ -17,6 +17,6 @@ public class pocDetails {
 	
 	private String pocName;
 	
-	private int pocNumber;
+	private String pocNumber;
 	
 }

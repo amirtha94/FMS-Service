@@ -30,7 +30,7 @@ public class User implements UserDetails{
 	
 	private String mobileNo;
 	
-	private String EmpName;
+	private String empName;
 	
 	private String username;
 	
@@ -43,6 +43,7 @@ public class User implements UserDetails{
 	private String role;
 	
 	@JsonIgnore
+	@JsonInclude(Include.NON_EMPTY)
 	private List<Role> roles;
 
 	@Transient

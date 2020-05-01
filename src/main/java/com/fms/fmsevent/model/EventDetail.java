@@ -32,15 +32,15 @@ public class EventDetail {
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private LocalDate eventDate;
 	
-	private String employeeId;
+	private int employeeId;
 	
 	private String employeeName;
 	
-	private String volunteerHours;
+	private double volunteerHours;
 	
-	private String travelHours;
+	private double travelHours;
 	
-	private String livesImpacted;
+	private double livesImpacted;
 	
 	private String businessUnit;
 	

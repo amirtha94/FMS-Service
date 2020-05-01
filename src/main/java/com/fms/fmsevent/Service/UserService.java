@@ -32,10 +32,10 @@ public class UserService {
 		Mono<User> userData = WebClient.builder().build().get().uri("http://localhost:8081/user/userInfo/{username}",username)
 		.retrieve()
 		.bodyToMono(User.class).log("get UserInfo data");
-		System.out.println("userData-->"+userData);
-		userData = userData.flatMap(i -> {System.out.println("iiii===>"+i);
+		
+		userData = userData.flatMap(i -> {
 			i.setRoles(Arrays.asList(Role.getEnumNameForValue(i.getRole())));
-			System.out.println("iiii===>"+i);
+			
 			return Mono.just(i);
 		});
 		//userData.map(i-> i.setRoles(Arrays.asList(Role.getEnumNameForValue(i.getRole())));
