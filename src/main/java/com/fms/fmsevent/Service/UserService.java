@@ -35,7 +35,7 @@ public class UserService {
 		
 		userData = userData.flatMap(i -> {
 			i.setRoles(Arrays.asList(Role.getEnumNameForValue(i.getRole())));
-			
+
 			return Mono.just(i);
 		});
 		//userData.map(i-> i.setRoles(Arrays.asList(Role.getEnumNameForValue(i.getRole())));
