@@ -15,7 +15,6 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("/eventdetail")
 public class EventDetailController {
 	
 	@Autowired
@@ -25,7 +24,7 @@ public class EventDetailController {
 	@PreAuthorize("hasRole('ADMIN')")
 	public Mono<EventDetail> insertEvents(@RequestBody EventDetail event) {
 		Mono<EventDetail> eventData = Mono.just(event);
-		return webclient.build().post().uri("http://localhost:8081/eventdetail/eventdata")
+		return webclient.build().post().uri("http://fms-events/eventdetail/eventdata")
 		.body(eventData, EventDetail.class)
 		.retrieve()
 		.bodyToMono(EventDetail.class).log("post data");
@@ -36,7 +35,7 @@ public class EventDetailController {
 	@PreAuthorize("hasRole('PMO') OR hasRole('ADMIN') OR hasRole('POC')")
 	public Flux<EventDetail> fetchAllEvents() {
 		
-		return webclient.build().get().uri("http://localhost:8081/eventdetail/eventdata")
+		return webclient.build().get().uri("http://fms-events/eventdetail/eventdata")
 				.retrieve()
 				.bodyToFlux(EventDetail.class).log("Get data");
 	}

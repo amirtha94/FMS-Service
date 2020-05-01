@@ -28,7 +28,7 @@ public class UserInfoController {
 	@PostMapping("/userInfo")
 	public Mono<String> insertUserInfo(@RequestBody User userInfo) {
 		Mono<User> userData = Mono.just(userInfo);
-		return webclient.build().post().uri("http://localhost:8081/user/userInfo")
+		return webclient.build().post().uri("http://fms-events/user/userInfo")
 				.contentType(MediaType.APPLICATION_JSON).body(userData, User.class).retrieve().bodyToMono(String.class)
 				.log("Post User info data");
 	}
@@ -37,7 +37,7 @@ public class UserInfoController {
 	@GetMapping("/userInfo")
 	public Mono<UserInfo> fetchUserInfo(@RequestBody UserInfo userInfo) {
 		Mono<UserInfo> userData = Mono.just(userInfo);
-		return WebClient.builder().build().get().uri("http://localhost:8081/user/userInfo").retrieve()
+		return WebClient.builder().build().get().uri("http://fms-events/user/userInfo").retrieve()
 				.bodyToMono(UserInfo.class).log("Post User info data");
 	}
 

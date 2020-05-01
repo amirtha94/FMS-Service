@@ -21,7 +21,7 @@ public class DashboardController {
 	@PreAuthorize("hasRole('PMO') OR hasRole('ADMIN') OR hasRole('POC')")
 	public Flux<Dashboard> fetchDashboard() {
 		
-		return webclient.build().get().uri("http://localhost:8081/event/getDashboardInfo")
+		return webclient.build().get().uri("http://fms-events/event/getDashboardInfo")
 				.retrieve()
 				.bodyToFlux(Dashboard.class).log("Dashboard data");
 	}
@@ -30,7 +30,7 @@ public class DashboardController {
 	@PreAuthorize("hasRole('PMO') OR hasRole('ADMIN') OR hasRole('POC')")
 	public Flux<Events> fetchAllEvents() {
 		
-		return webclient.build().get().uri("http://localhost:8081/event/allevents")
+		return webclient.build().get().uri("http://fms-events/event/allevents")
 				.retrieve()
 				.bodyToFlux(Events.class).log("Events data");
 	}

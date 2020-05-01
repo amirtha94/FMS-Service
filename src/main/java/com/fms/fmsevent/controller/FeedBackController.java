@@ -24,15 +24,14 @@ import reactor.core.publisher.Mono;
 @RequestMapping("/feedback")
 public class FeedBackController {
 
-	// @Autowired
+	 @Autowired
 	// @LoadBalanced
 	private WebClient.Builder webclient;
 
-	@Bean
-	@LoadBalanced
-	public WebClient.Builder webclient() {
-		return WebClient.builder();
-	}
+	/*
+	 * @Bean //@LoadBalanced public WebClient.Builder webclient() { return
+	 * WebClient.builder(); }
+	 */
 
 	/*
 	 * @Autowired FeignServiceProxy feignService;
